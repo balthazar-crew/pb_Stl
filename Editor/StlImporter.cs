@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEditor.Experimental.AssetImporters;
+
 using System.IO;
 using System.Linq;
 
 namespace Parabox.Stl.Editor
 {
-    [ScriptedImporter(1, "stl")]
-    public class StlImporter : ScriptedImporter
+    [UnityEditor.AssetImporters.ScriptedImporter(1, "stl")]
+    public class StlImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
         [SerializeField]
         CoordinateSpace m_CoordinateSpace;
@@ -17,7 +17,7 @@ namespace Parabox.Stl.Editor
         [SerializeField]
         bool m_Smooth;
 
-        public override void OnImportAsset(AssetImportContext ctx)
+        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
         {
             var name = Path.GetFileNameWithoutExtension(ctx.assetPath);
             var meshes = Importer.Import(ctx.assetPath, m_CoordinateSpace, m_UpAxis, m_Smooth).ToArray();

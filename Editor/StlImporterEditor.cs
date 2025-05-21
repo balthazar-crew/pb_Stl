@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.AssetImporters;
+
 using System.IO;
 using System.Linq;
 
 namespace Parabox.Stl.Editor
 {
     [CustomEditor(typeof(StlImporter))]
-    class StlImporterEditor : ScriptedImporterEditor
+    class StlImporterEditor : UnityEditor.AssetImporters.ScriptedImporterEditor
     {
         public override void OnInspectorGUI()
         {
