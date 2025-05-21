@@ -143,9 +143,12 @@ namespace Parabox.Stl
 
 							foreach(Mesh mesh in meshes)
 							{
+								if (mesh.vertices.Length != mesh.normals.Length)
+									mesh.RecalculateNormals();
+
 								Vector3[] v = mesh.vertices;
 								Vector3[] n = mesh.normals;
-
+								
 								if(convertToRightHandedCoordinates)
 								{
 									for(int i = 0, c = v.Length; i < c; i++)
